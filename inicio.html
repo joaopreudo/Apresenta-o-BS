@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>BeachSpot</title>
+</head>
+<style>
+  /* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Grid layout */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main";
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #002c87;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+  
+  .logo-circle {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 40px;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .nav-links a,
+  .logout a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .logout {
+    margin-bottom: 20px;
+  }
+  
+  /* Header */
+  .header {
+    grid-area: header;
+    background-color: #ffffffcc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 2px solid #73bff6;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0138b4;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Search */
+  .search {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #73bff6;
+    transition: width 0.4s ease;
+  }
+  
+  .search input {
+    border: none;
+    outline: none;
+    width: 180px;
+    padding: 8px 12px;
+    background: transparent;
+    color: #0138b4;
+    font-weight: 500;
+    display: none;
+  }
+  
+  .search:hover {
+    width: 220px;
+    justify-content: flex-start;
+    padding-left: 12px;
+  }
+  
+  .search:hover input {
+    display: inline-block;
+  }
+  
+  /* About Link */
+  .about-link {
+    text-decoration: none;
+    color: #0138b4;
+    font-weight: bold;
+  }
+  
+  /* Main */
+  .main-content {
+    grid-area: main;
+    background: linear-gradient(135deg, #0138b4, #73bff6);
+    padding: 32px;
+    color: white;
+    overflow-y: auto;
+  }
+
+/* Seção 2 - Barracas Section */
+.barracas-section {
+  margin-top: 32px;
+}
+
+.barracas-section h2 {
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+
+.barracas-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.barraca-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: calc(33.333% - 16px);
+  min-width: 250px;
+  text-align: center;
+  color: #0138b4;
+}
+
+.barraca-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.barraca-card h3 {
+  margin: 16px 0 8px;
+  font-size: 1.2rem;
+}
+
+.barraca-info {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  color: #666;
+}
+</style>
+<body>
+  <div class="grid-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-circle">
+        <!-- Aqui poderaia colocar uma imagem depois -->
+      </div>
+      <nav class="nav-links">
+        <a href="#"><span>🏠</span></a>
+        <a href="#"><span>👤</span></a>
+        <a href="#"><span>📅</span></a>
+        <a href="#"><span>ℹ️</span></a>
+      </nav>
+      <div class="logout">
+        <a href="#"><span>🚪</span></a>
+      </div>
+    </aside>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-text">BeachSpot</div>
+      </div>
+      
+      <div class="header-right">
+        <div class="search">
+          <span>🔍</span>
+          <input type="text" placeholder="Pesquisar..." />
+        </div>
+        <a href="#" class="about-link">Sobre</a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+  <!-- Seção 2: Barracas com avaliações -->
+  <section class="barracas-section">
+    <h2>Relaxe nessas barracas com <br> as melhores avaliações</h2>
+    <div class="barracas-grid">
+
+      <!-- Card de barraca -->
+      <div class="barraca-card">
+        <img src="https://img.freepik.com/fotos-gratis/grande-plano-seletivo-de-espreguicadeiras-de-madeira-marrons-sob-guarda-sois-na-praia_181624-2839.jpg?semt=ais_hybrid&w=740" alt="Barraca de praia" class="barraca-image">
+        <h3>Brisa do Mar</h3>
+        <div class="barraca-info">
+          <p>⭐ 9.3 | Salvador | Acesso direto á praia</p>
+        </div>
+      </div>
+
+      <div class="barraca-card">
+        <img src="https://img.freepik.com/fotos-gratis/bela-piscina-ao-ar-livre-com-cadeira-de-guarda-chuva-silhueta-ao-redor-no-resort-no-tempo-do-nascer-do-sol_74190-7910.jpg" alt="Barraca de praia" class="barraca-image">
+        <h3>Oássis do Oceano</h3>
+        <div class="barraca-info">
+          <p>⭐ 8.4 | Salvador | Piscina</p>
+        </div>
+      </div>
+
+      <div class="barraca-card">
+        <img src="https://img.freepik.com/fotos-gratis/vista-panoramica-de-uma-praia-particular-com-espreguicadeiras-do-mar-e-das-montanhas-hotel-de-luxo-amara-dols-vita-recorrer-tekirova-kemer-peru_146671-18729.jpg" alt="Barraca de praia" class="barraca-image">
+        <h3>Refúgio da Areia</h3>
+        <div class="barraca-info">
+          <p>⭐ 9.3 | Salvador | Acesso direto á praia</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
